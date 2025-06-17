@@ -2669,7 +2669,7 @@ static void walkModItems(T* parent, Declaration* p, Type* r, bool sort,
 static void fillModItems( QTreeWidgetItem* item, Declaration* n, Declaration* p, Type* r,
                           bool sort, QHash<Declaration*,QTreeWidgetItem*>& idx, Project* pro )
 {
-    const bool pub = n->visi >= Declaration::Private;
+    const bool pub = n->visi > Declaration::Private;
     item->setText(0,n->name);
     item->setData(0, Qt::UserRole, QVariant::fromValue(n) );
     idx.insert(n,item);
@@ -2753,6 +2753,7 @@ static QTreeWidgetItem* fillHierClass( T* parent, Declaration* n, Type* p, Type*
             ret = item;
     return ret;
 }
+
 void Ide::fillHier(Declaration* n)
 {
     if( d_lock4 )

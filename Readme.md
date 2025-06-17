@@ -252,7 +252,7 @@ Follow these steps if you want to build the Luon IDE yourself. The build is usin
 1. Download https://github.com/rochus-keller/GuiTools/archive/refs/heads/master.zip and unpack it to the root directory; rename the resulting directory to "GuiTools".
 1. Download https://github.com/rochus-keller/LeanQt/archive/refs/heads/master.zip and unpack it to the root directory; rename the resulting directory to "LeanQt".
 1. Download https://github.com/rochus-keller/BUSY/archive/refs/heads/master.zip and unpack it to the root directory; rename the resulting directory to "build".
-1. Open a command line in the "LuaJIT" directory and follow the instructions there to build LuaJIT for your platform.
+1. Open a command line in the "LuaJIT" directory and follow the instructions there to build LuaJIT for your platform. NOTE that on x86_64 systems you have to use the following command to avoid segfaults: `make XCFLAGS=-DLUAJIT_ENABLE_GC64`. NOTE that Apple silicon machines are not supported at this time.
 1. Open a command line in the "build" directory and type `cc *.c -O2 -lm -o lua` or `cl /O2 /MD /Fe:lua.exe *.c` depending on whether you are on a Unix or Windows machine; wait a few seconds until the Lua executable is built.
 1. Now type `./lua build.lua ../Luon` (or `lua build.lua ../Luon` on Windows); wait until the LuonIDE executable is built; you find it in the output subdirectory.
 

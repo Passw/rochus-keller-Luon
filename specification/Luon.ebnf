@@ -53,7 +53,7 @@ DictType ::= HASHMAP NamedType OF type
 
 RecordType ::= RECORD ['(' BaseType ')'] { FieldList [ ';' ] } END
 BaseType ::= NamedType
-FieldList ::= IdentList ':' type 
+FieldList ::= IdentList ':' type
 
 IdentList ::= identdef { [','] identdef}
 

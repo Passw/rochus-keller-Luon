@@ -1331,8 +1331,6 @@ Statement* Parser2::statement() {
 
 Statement* Parser2::assignmentOrProcedureCall() {
     Token t = la;
-    if( t.d_lineNr == 25 )
-        dummy();
     Expression* lhs = designator(true);
     if( lhs == 0 )
         return 0;
